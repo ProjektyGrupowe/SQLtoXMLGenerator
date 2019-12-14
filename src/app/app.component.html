@@ -1,0 +1,89 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>SQL to XML Schema generator</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body class="bg-light text-center">
+    <div class="container">
+        <div class="text-center">
+            <br>
+            <h2>SQL to XML Generator</h2>
+            <p class="lead">Lorem ipsum dolorem</p>
+        </div>
+
+        <form class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="Title">Title</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                        Title is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="Shortcut">Shortcut</label>
+                <input type="text" class="form-control" placeholder="Shortcut" [(ngModel)]="shortcut" [ngModelOptions]="{standalone: true}" required>
+                <div class="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" placeholder="Description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" required>
+                <div class="invalid-feedback">
+                    Please enter your shipping address.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="Author">Author</label>
+                <input type="text" class="form-control" placeholder="Author" [(ngModel)]="author" [ngModelOptions]="{standalone: true}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="snippetType">Snippet Type</label>
+                <select class="custom-select d-block w-100" [(ngModel)]="snippetType" [ngModelOptions]="{standalone: true}" required>
+                                <option>Schema</option>
+                                <option>Role</option>
+                                <option>Stored Procedure</option>
+                                <option>Function</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid snippet type.
+                </div>
+            </div>
+
+        </form>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">SQL Query</label>
+            <textarea class="form-control" rows="3" [(ngModel)]="SQLQuery" [ngModelOptions]="{standalone: true}" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">XML Schema</label>
+            <textarea class="form-control" id="XMLSchema" rows="3"></textarea>
+        </div>
+        <br>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="GenerateXML(title, shortcut, description, author, snippetType, SQLQuery)">Generate</button>
+        <br>
+    </div>
+    <script src="js/functions.js"></script>
+</body>
+
+</html>
