@@ -15,15 +15,25 @@ export class AppComponent {
   GenerateXML(title: string, shortcut: string, description: string, author: string, snippetType: string, SQLQuery: string) {
 
     const jsObject = {
-        Title: title,
-        Shortcut: shortcut,
-        Description: description,
-        Author: author,
-        SnippetType: snippetType,
-        SqlQuery: SQLQuery,
+      Header: {
+        Declarations: {
+          Title: title,
+          Shortcut: shortcut,
+          Description: description,
+          Author: author,
+          SnippetType: snippetType,
+        },
+      },
+      Snippet: {
+        Code: {
+          SqlQuery: SQLQuery,
+        },
+      },
     };
 
     console.log(JsonToXML.parse('SQL', jsObject));
+
+    document.getElementById('XMLSchema').innerHTML = JsonToXML.parse('SQL', jsObject);
   }
 }
 
